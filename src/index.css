@@ -1,13 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: white;
+  overflow-x: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.bgHeader {
+  background-image: url("../public/assets/bgHeader.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bgHeader::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.5)
+  );
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+li.active::before {
+  position: absolute;
+  display: block;
+  content: "";
+  top: 130%;
+  left: -15%;
+  width: 130%;
+  height: 1px;
+  background-color: white;
+}
+li:hover::before {
+  position: absolute;
+  display: block;
+  content: "";
+  top: 130%;
+  left: -15%;
+  width: 130%;
+  height: 1px;
+  background-color: white;
+  animation: hoverScale ease 0.25s;
+}
+
+@keyframes hoverScale {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
